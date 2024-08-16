@@ -17,4 +17,8 @@ The dataset used in this project is publicly available and contains information 
 ## Usage
 ## Results
 ## Contributors 
+- [Gabriel CIFCI]
+- [Nathalie MORVANT]
+- [Naima TALAHIK]
+- [Stephane ROY]
 ## Licence 
