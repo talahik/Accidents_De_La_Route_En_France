@@ -17,7 +17,7 @@ The dataset utilized in this project is publicly accessible and provides compreh
 - LIEUX: Describes the main location of the accident, even if it occurred at an intersection.
 - VEHICULES: Details the vehicles involved in the accident.
 - USAGERS: Describes the users involved in the accident.
--  
+   
 Extensive data cleaning and preprocessing steps were undertaken to ensure the accuracy, consistency, and relevance of the data for subsequent analysis and modeling.
 ## Installation
 ## Usage
