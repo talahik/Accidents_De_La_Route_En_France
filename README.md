@@ -22,6 +22,7 @@ Extensive data cleaning and preprocessing steps were undertaken to ensure the ac
 ## Installation
 ### 1. Clone the Repository
 Start by cloning the GitHub repository to your local machine using the following command in your terminal:
+ ''' bash
  git clone https://github.com/talahik/Road-Accidents-in-France.git
 
 ## Usage
