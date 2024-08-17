@@ -20,6 +20,10 @@ The dataset utilized in this project is publicly accessible and provides compreh
    
 Extensive data cleaning and preprocessing steps were undertaken to ensure the accuracy, consistency, and relevance of the data for subsequent analysis and modeling.
 ## Installation
+### 1. Clone the Repository
+Start by cloning the GitHub repository to your local machine using the following command in your terminal:
+git clone 
+
 ## Usage
 ## Results
 ## Contributors 
