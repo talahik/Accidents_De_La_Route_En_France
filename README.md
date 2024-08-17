@@ -12,7 +12,12 @@ Data Analysis and Machine Learning Project on Road Accidents in France, conducte
 - [Contributors](##contributors)
 - [License](##license)
 ## Data
-The dataset used in this project is publicly available and contains information on road accidents in France, including the date, location, weather conditions, and types of vehicles involved. Data cleaning and preprocessing were performed to ensure accuracy and relevance.
+The dataset utilized in this project is publicly accessible and provides comprehensive information on road accidents in France. The data is organized into four categories, each provided as a separate CSV file:
+- [CARACTERISTIQUES: Describes the general circumstances of the accident.]
+- LIEUX: Describes the main location of the accident, even if it occurred at an intersection.
+- VEHICULES: Details the vehicles involved in the accident.
+- USAGERS: Describes the users involved in the accident.
+Extensive data cleaning and preprocessing steps were undertaken to ensure the accuracy, consistency, and relevance of the data for subsequent analysis and modeling.
 ## Installation
 ## Usage
 ## Results
