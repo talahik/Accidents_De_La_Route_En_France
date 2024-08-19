@@ -32,8 +32,6 @@ This project was developed using the following tools and libraries:
  - Streamlit: Utilized to create an interactive web app for displaying the results and insights from the analysis.
 ### Development Environment
  - Google Colab/Jupyter Notebook: Used for writing and excuting Python code in an interactive manner which facilitated collaboration and sharing within the team.
-
-## Results
 ## Contributors 
 - [Gabriel CIFCI]
 - [Nathalie MORVANT]
