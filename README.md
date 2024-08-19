@@ -22,6 +22,16 @@ Extensive data cleaning and preprocessing steps were undertaken to ensure the ac
 ## Tools and Libraries 
 This project was developed using the following tools and libraries:
  - Python: The core programming language used for data analysis, processing, and machine learning.
+### Data Visualization
+ - Matplotlib: For creating static, high-quality plots and charts.
+ - Seaborn: Built on top of Matplotlib, used for creating attractive and informative statistical graphics.
+ - Plotly: Used for creating interactive and dynamic visualization.
+### Machine Learning
+ - Scikit-learn: Employed for implementing machine learning algorithms and building predictive models.
+### Application Development
+ - Streamlit: Utilized to create an interactive web app for displaying the results and insights from the analysis.
+### Development Environment
+ - Google Colab/Jupyter Notebook: Used for writing and excuting Python code in an interactive manner which facilitated collaboration and sharing within the team.
 
 ## Results
 ## Contributors 
@@ -29,4 +39,3 @@ This project was developed using the following tools and libraries:
 - [Nathalie MORVANT]
 - [Naima TALAHIK]
 - [Stephane ROY]
-## Licence 
