@@ -26,7 +26,7 @@ The BAAC file contains comprehensive data on all road accidents resulting in bod
 - Accident characteristics: Details about the nature and circumstances of the accident.
 - Vehicle and user information: Specific details about the vehicles and people involved in the accident.
 
-These datasets are available in open data formats. For our analysis, we used the annual datasets from 2019 to 2022, which consist of four CSV files: Caractéristiques, Lieux, Véhicules, and Usagers. The unique accident identifier ("Num_Acc") present in all four files allows for linking various variables that describe each accident. In cases where multiple vehicles are involved, the connection between the vehicle and its occupants is made through the "id_vehicule" variable.
+These datasets are available in open data formats. For our analysis, we used the annual datasets from 2019 to 2022, which consist of four CSV files: Caractéristiques, Lieux, Véhicules, and Usagers. 
 Extensive data cleaning and preprocessing steps were undertaken to ensure the accuracy, consistency, and relevance of the data for subsequent analysis and modeling.
 ## Tools and Libraries 
 This project was developed using the following tools and libraries:
