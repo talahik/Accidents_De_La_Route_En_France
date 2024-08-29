@@ -6,7 +6,7 @@ Data Analysis and Machine Learning Project on Road Accidents in France, conducte
 ## Table of contents 
 - [Project Description](##project-description)
 - [Data](##data)
-- [Tools and Libraries ](##Tools and Libraries )
+- [Tools and Libraries ](##Tools and Librairies)
 - [Contributors](##contributors)
 ## Data
 The dataset utilized in this project is publicly accessible and provides comprehensive information on road accidents in France. The data is organized into four categories, each provided as a separate CSV file:
