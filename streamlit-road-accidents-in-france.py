@@ -319,7 +319,8 @@ st.sidebar.markdown("""- Nathalie MORVANT
 st.sidebar.write("### Lien GitHub :")
 st.sidebar.markdown("[Lien vers le projet sur GitHub](https://github.com/talahik/Road-Accidents-in-France)")
 
-##### Création de la page Introduction
+############### Création de la page Introduction #########################
+
 if page == pages[0] :
   st.write("# Introduction")
   st.header("Description du projet")
@@ -360,12 +361,6 @@ if page == pages[0] :
            Nous nous sommes procurés toutes ces données sur le site de data.gouv. et le site de l'INSEE.""")
   st.link_button("Trafic routier 2019", "https://www.data.gouv.fr/fr/datasets/trafic-moyen-journalier-annuel-sur-le-reseau-routier-national/")
   st.link_button("Nombre d'habitants par département","https://www.insee.fr/fr/statistiques/1893198")
-
-
-##############################################################
-
-
-
 
 
 ############### Création de la page Exploration ############################
@@ -953,7 +948,8 @@ if page == pages[1] :
 
 
 
-###### Création de la page Préprocessing
+############### Création de la page Préprocessing #########################
+
 if page == pages[2]:
     st.write("# Preprocessing")
     st.write("""Avant l'étape d'entraînement du modèle, nous avons travaillé à la préparation des données : structuration du dataset et nettoyage des données.""")
@@ -1172,10 +1168,9 @@ if page == pages[2]:
         """)
 
 
+############### Création de la Page Modélisation #########################
 
-
-######################################################################################################
-if page == pages[3]:  # Page "Modélisation"
+if page == pages[3]:  
     st.write("### Méthodologie de modélisation + performance")
     # Fonction pour charger et prétraiter les données
     ##### j'ai enlevé le truc pour un test
@@ -1237,12 +1232,30 @@ if page == pages[3]:  # Page "Modélisation"
     plt.ylabel('Vraie classe')
     plt.xlabel('Classe prédite')
     st.pyplot(fig)
-
+    
     # Rapport de classification
     st.subheader("Rapport de Classification")
     cr = classification_report(y_test, y_pred, target_names=label_encoder.classes_, output_dict=True)
     cr_df = pd.DataFrame(cr).transpose()
     st.table(cr_df)
+    
+    # Extraire l'importance des caractéristiques
+    feature_names = pipeline.named_steps['preprocessor'].get_feature_names_out()
+    feature_importance = pipeline.named_steps['classifier'].feature_importances_
+
+    # Créer un DataFrame pour l'importance des caractéristiques
+    feature_importance_df = pd.DataFrame({
+        'feature': feature_names,
+        'importance': feature_importance
+    }).sort_values('importance', ascending=False)
+    # Afficher le top 15 des caractéristiques les plus importantes
+    st.subheader("Top 15 des Caractéristiques les Plus Importantes")
+    fig, ax = plt.subplots(figsize=(12, 8))
+    sns.barplot(x='importance', y='feature', data=feature_importance_df.head(15), ax=ax)
+    plt.title('Top 15 des Caractéristiques les Plus Importantes')
+    plt.xlabel('Importance')
+    plt.ylabel('Caractéristiques')
+    st.pyplot(fig)
 
     # Calcul de la MAE
     y_pred_train = pipeline.predict(X_train)
@@ -1304,26 +1317,7 @@ if page == pages[3]:  # Page "Modélisation"
     st.write(f"\nMAE du modèle complet : {mae_test:.3f}")
     st.write(f"MAE du modèle simplifié : {simple_mae:.3f}")
 
-
-    #####################################
-    # Extraire l'importance des caractéristiques
-    feature_names = pipeline.named_steps['preprocessor'].get_feature_names_out()
-    feature_importance = pipeline.named_steps['classifier'].feature_importances_
-
-    # Créer un DataFrame pour l'importance des caractéristiques
-    feature_importance_df = pd.DataFrame({
-        'feature': feature_names,
-        'importance': feature_importance
-    }).sort_values('importance', ascending=False)
-
-    # Afficher le top 15 des caractéristiques les plus importantes
-    st.subheader("Top 15 des Caractéristiques les Plus Importantes")
-    fig, ax = plt.subplots(figsize=(12, 8))
-    sns.barplot(x='importance', y='feature', data=feature_importance_df.head(15), ax=ax)
-    plt.title('Top 15 des Caractéristiques les Plus Importantes')
-    plt.xlabel('Importance')
-    plt.ylabel('Caractéristiques')
-    st.pyplot(fig)
+   
     ##############################################
     st.write("""
     Analyse de la comparaison :
@@ -1352,6 +1346,7 @@ if page == pages[3]:  # Page "Modélisation"
     4. circ (régime de circulation) : Influence du type de route sur la gravité des accidents.
     """)
 
+############### Création de la page Déploiment du modèle #########################
 
 if page == pages[4]:
     st.write("### Déploiement du modèle")
@@ -1498,29 +1493,21 @@ if page == pages[4]:
 
 
 
+############### Création de la page Conclusion #########################
 
 if page == pages[5] :
-        st.write("### Conclusion (retours critiques, pistes améliorations ...)")
-        #st.header("10. Conclusion et Perspectives")
+        st.write("# Conclusion ")
+    
         st.write("""
-        Notre modèle d'arbre de décision fournit une base solide pour prédire la gravité des accidents de la route.
-        Voici les principales conclusions :
+        Pistes d'amélioration du modèle :
+        1. Optimiser les hyperparamètres du modèle
+        2. Collecter plus de données, particulièrement pour les accidents graves et mortels
+        3. Explorer d'autres caractéristiques potentiellement pertinentes
 
-        1. Importance des équipements de sécurité : L'absence d'équipements de sécurité est fortement associée à des accidents plus graves ou mortels.
-        2. Localisation de l'accident : Les accidents hors agglomération sont plus fréquents mais généralement moins graves.
-        3. Régime de circulation : Les accidents sur des routes à chaussées séparées sont généralement moins graves.
-        4. Catégories d'âge : Les personnes plus âgées impliquées dans des accidents routiers sont plus susceptibles d'être victime de leur blessure.
-
+        La prochaine étape serait d'implémenter ces améliorations et de comparer les résultats avec notre modèle actuel.
+                 
         Recommandations :
         - Promotion des équipements de sécurité : Renforcer les campagnes de sensibilisation.
         - Amélioration de la sécurité routière : Focus sur les zones à haut risque.
         - Vigilance à avertir rapidement les secours en cas d'accident : Renforcer les dispositifs d'alerte.
-
-        Pistes d'amélioration du modèle :
-        1. Essayer d'autres algorithmes (Random Forest, Gradient Boosting)
-        2. Optimiser les hyperparamètres du modèle
-        3. Collecter plus de données, particulièrement pour les accidents graves et mortels
-        4. Explorer d'autres caractéristiques potentiellement pertinentes
-
-        La prochaine étape serait d'implémenter ces améliorations et de comparer les résultats avec notre modèle actuel.
     """)
